@@ -86,4 +86,9 @@ class OrderServiceTest {
         List<Order> result = orderService.getOrdersContainsCategory("Book");
         System.out.println(result);
     }
+    @Test
+    void testFlatMap() {
+        List<Product> result = orderService.findProductsOverPrice(400);
+        result.stream().forEach(p-> System.out.println(p.getPrice()));
+    }
 }
