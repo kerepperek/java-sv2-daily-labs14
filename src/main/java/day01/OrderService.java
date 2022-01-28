@@ -34,6 +34,11 @@ public class OrderService {
                 .collect(Collectors.toList());
     }
 
+    public List<Order> sortOrderByStatusAndOrderDate(){
+        return orders.stream()
+                .sorted(Comparator.comparing(Order::getStatus).thenComparing(Order::getOrderDate))
+                .toList();
+    }
     public boolean hasOrderLessThan(int max){
     //    return orders.stream()
      //           .filter(o->o.getProducts().size()<max)
